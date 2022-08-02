@@ -35,7 +35,7 @@ def start_train(args):
                 loss = loss + args.weight_decay*tf.nn.l2_loss(weight)
             grads = tape.gradient(loss, model.trainable_weights)
             optimizer.apply_gradients(zip(grads, model.trainable_weights))
-            acc = evaluate(model, nf, ef, e_label, test_mask)
+        acc = evaluate(model, nf, ef, e_label, test_mask)
         
         if epoch >= 3:
             dur.append(time.time() - t0)
